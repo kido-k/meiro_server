@@ -34,7 +34,7 @@
             const BORD_ROTE_UNIT = 1;
 
             $(function () {
-                var socket = io.connect('http://localhost:8080');
+                var socket = io.connect('https://gentle-dusk-86476.herokuapp.com/');
 
                 socket.emit('connected', 'mobile_connected');
                 socket.on('connect_return', function (msg) {
