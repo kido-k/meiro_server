@@ -4,11 +4,10 @@ var server = require("http").createServer(function (req, res) {
   // var output = fs.readFileSync("test.html", "utf-8");
   var output = fs.readFileSync("http://whitegoat.sakura.ne.jp/", "utf-8");
   res.end(output);
-}).listen(8080);
-var io = require("socket.io").listen(server);
-server.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
+server.listen(process.env.PORT || 3000);
+var io = require("socket.io").listen(server);
+
 
 // ユーザ管理ハッシュ
 var userHash = {};
