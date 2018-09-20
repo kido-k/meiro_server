@@ -34,7 +34,7 @@
             const BORD_ROTE_UNIT = 1;
 
             $(function () {
-                var socket = io.connect('https://gentle-dusk-86476.herokuapp.com/');
+                var socket = io.connect('http://whitegoat.sakura.ne.jp/');
 
                 socket.emit('connected', 'mobile_connected');
                 socket.on('connect_return', function (msg) {
