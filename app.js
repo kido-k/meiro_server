@@ -6,6 +6,9 @@ var server = require("http").createServer(function (req, res) {
   res.end(output);
 }).listen(8080);
 var io = require("socket.io").listen(server);
+server.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 // ユーザ管理ハッシュ
 var userHash = {};

@@ -11,10 +11,15 @@
     "type": "git",
     "url": "https://github.com/kido-k/meiro_server.git"
   },
+  "engine": {
+    "node": "v8.11.3",
+    "npm": "5.6.0"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
+    "http": "0.0.0",
     "socket.io": "^2.1.1"
   }
 }
