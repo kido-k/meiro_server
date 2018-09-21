@@ -5,7 +5,7 @@ var server = require("http").createServer(function (req, res) {
   var output = fs.readFileSync("mobile.html", "utf-8");
   res.end(output);
 });
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 8080);
 var io = require("socket.io").listen(server);
 
 
