@@ -1,6 +1,21 @@
 var fs = require("fs");
+
+// http.createServer(function (req, res) {
+//   console.log('accessed');
+//   res.writeHead(200, {
+//     'Content-Type':'application/json; charset=utf-8',
+//     'Access-Control-Allow-Origin':'http://a-site.s3-website-ap-northeast-1.amazonaws.com',
+//     'Access-Control-Allow-Methods':'POST, GET, OPTIONS',
+//     'Access-Control-Allow-Headers':'*'
+//   });
+
 var server = require("http").createServer(function (req, res) {
-  res.writeHead(200, { "Content-Type": "text/html" });
+  res.writeHead(200, { 
+    "Content-Type": "text/html",
+    'Access-Control-Allow-Origin':'http://a-site.s3-website-ap-northeast-1.amazonaws.com',
+    'Access-Control-Allow-Methods':'POST, GET, OPTIONS',
+    'Access-Control-Allow-Headers':'*'
+   });
   // var output = fs.readFileSync("test.html", "utf-8");
   var output = fs.readFileSync("mobile.html", "utf-8");
   res.end(output);
