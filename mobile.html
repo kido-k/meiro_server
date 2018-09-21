@@ -35,7 +35,7 @@
 
         // $(function () {
             window.addEventListener("load", function(){
-            var socket = io.connect('http://whitegoat.sakura.ne.jp/');
+            var socket = io.connect('http://whitegoat.sakura.ne.jp/index_physical.html');
 
             socket.emit('connected', 'mobile_connected');
             socket.on('connect_return', function (msg) {
