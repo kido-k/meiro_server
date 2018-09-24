@@ -14,7 +14,8 @@
 <body>
     <h1>携帯操作用</h1>
     <div>
-        <div style='display:flex'>
+        <!-- <div style='display:flex'> -->
+            <div style='display:none'>
             <button id="a_up" class="a_move">↑</button>
             <button id="a_down" class="a_move">↓</button>
             <button id="a_left" class="a_move">←</button>
@@ -37,6 +38,8 @@
         const BORD_ROTE_UNIT = 1;
 
         $(function () {
+            var alpha = 0, beta = 0, gamma = 0;
+
             var socket = io.connect('https://gentle-dusk-86476.herokuapp.com/');
             // var socket = io.connect('http://localhost:8080/');
             socket.emit('connected', 'mobile_connected');
@@ -47,6 +50,14 @@
             $('.b_move').on('click', function () {
                 const btn = this.id;
                 socket.emit('bord_control', btn);
+            });
+
+            // ジャイロセンサの値が変化したら実行される deviceorientation イベント
+            window.addEventListener("deviceorientation", (gyro) => {
+                socket.emit('jyro_sensor', btn);
+                alpha = gyro.alpha;  // z軸（表裏）まわりの回転の角度（反時計回りがプラス）
+                beta = gyro.beta;   // x軸（左右）まわりの回転の角度（引き起こすとプラス）
+                gamma = gyro.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
             });
         });
     </script>
